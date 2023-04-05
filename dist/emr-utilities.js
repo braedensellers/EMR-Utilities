@@ -83,6 +83,6 @@ function fillStringWithCharacter(str, character, desiredLength = 0) {
   return str;
 }
 
-let p = new Patient("Braeden", "Sellers", "02-02-1999");
-p.say();
-p.sayMedicalRecordNumber();
+//let p = new Patient("Braeden", "Sellers", "02-02-1999");
+//p.say();
+//p.sayMedicalRecordNumber();
