@@ -4,7 +4,7 @@ export default class Patient {
         this.lastName = lastName.toString().trim();
         this.dateOfBirth = dateOfBirth;
 
-        this.medicalRecordNumber = this.generateMedicalRecordNumber();
+        this.medicalRecordNumber = this.generateMedicalRecordNumber(1, 4);
     }
 
     say = () => console.log(`Patient: ${this.firstName} ${this.lastName} - ${this.dateOfBirth.toString()}`);
@@ -15,10 +15,10 @@ export default class Patient {
 
     age = () => new Date().getFullYear() - new Date(this.dateOfBirth).getFullYear();
 
-    generateMedicalRecordNumber() {
+    generateMedicalRecordNumber(firstNameChars = 4, lastNameChars = 4) {
         try {
-            let mrnFirstName = (this.firstName.substring(0, 4)).fillWithCharacter("X", 4);
-            let mrnLastName = (this.lastName.substring(0, 4)).fillWithCharacter("X", 4);
+            let mrnFirstName = (this.firstName.substring(0, 4)).fillWithCharacter("X", firstNameChars);
+            let mrnLastName = (this.lastName.substring(0, 4)).fillWithCharacter("X", lastNameChars);
             let mrnDateOfBirth = getDateStringForMRN(new Date(this.dateOfBirth));
 
             return (mrnLastName + mrnFirstName + mrnDateOfBirth).toUpperCase();

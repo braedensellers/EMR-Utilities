@@ -70,14 +70,16 @@ var Patient = /*#__PURE__*/function () {
     this.firstName = firstName.toString().trim();
     this.lastName = lastName.toString().trim();
     this.dateOfBirth = dateOfBirth;
-    this.medicalRecordNumber = this.generateMedicalRecordNumber();
+    this.medicalRecordNumber = this.generateMedicalRecordNumber(1, 4);
   }
   _createClass(Patient, [{
     key: "generateMedicalRecordNumber",
     value: function generateMedicalRecordNumber() {
+      var firstNameChars = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 4;
+      var lastNameChars = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 4;
       try {
-        var mrnFirstName = this.firstName.substring(0, 4).fillWithCharacter("X", 4);
-        var mrnLastName = this.lastName.substring(0, 4).fillWithCharacter("X", 4);
+        var mrnFirstName = this.firstName.substring(0, 4).fillWithCharacter("X", firstNameChars);
+        var mrnLastName = this.lastName.substring(0, 4).fillWithCharacter("X", lastNameChars);
         var mrnDateOfBirth = getDateStringForMRN(new Date(this.dateOfBirth));
         return (mrnLastName + mrnFirstName + mrnDateOfBirth).toUpperCase();
       } catch (err) {
@@ -11700,4 +11702,4 @@ createNewPatient.addEventListener('click', function () {
 
 /******/ })()
 ;
-//# sourceMappingURL=emrutil49b7315bf3236f732ef4.js.map
+//# sourceMappingURL=emrutil81b8f9ae028811fa798e.js.map
