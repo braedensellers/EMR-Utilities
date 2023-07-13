@@ -77,3 +77,5 @@ function formatDateStringForId(date) {
 module.exports = {
     Patient
 }
+
+window.Patient = Patient;
