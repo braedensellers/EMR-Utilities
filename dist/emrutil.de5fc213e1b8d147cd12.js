@@ -99,6 +99,7 @@ function formatDateStringForId(date) {
 module.exports = {
   Patient: Patient
 };
+window.Patient = Patient;
 
 /***/ })
 
@@ -204,4 +205,4 @@ function createPatient(_firstName, _lastName, _dateOfBirth) {
 
 /******/ })()
 ;
-//# sourceMappingURL=emrutil.271373345ce28760f19e.js.map
+//# sourceMappingURL=emrutil.de5fc213e1b8d147cd12.js.map
