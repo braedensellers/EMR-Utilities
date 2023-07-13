@@ -4,7 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
     mode: 'development',
     entry: {
-        emrutil: path.resolve(__dirname, 'src/index.js'),
+        emrutil: path.resolve(__dirname, 'src/emr-utilities.js'),
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
