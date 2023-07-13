@@ -54,6 +54,7 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
 var Patient = /*#__PURE__*/function () {
   function Patient(firstName, lastName, dateOfBirth) {
     var _this = this;
+    var mrnFirstNameCharCount = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : 1;
     _classCallCheck(this, Patient);
     _defineProperty(this, "say", function () {
       return console.log("Patient: ".concat(_this.firstName, " ").concat(_this.lastName, " - ").concat(_this.dateOfBirth.toString()));
@@ -70,7 +71,7 @@ var Patient = /*#__PURE__*/function () {
     this.firstName = firstName.toString().trim();
     this.lastName = lastName.toString().trim();
     this.dateOfBirth = dateOfBirth;
-    this.medicalRecordNumber = this.generateMedicalRecordNumber(1, 4);
+    this.medicalRecordNumber = this.generateMedicalRecordNumber(mrnFirstNameCharCount, 4);
   }
   _createClass(Patient, [{
     key: "generateMedicalRecordNumber",
@@ -11684,22 +11685,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
-var exphsImg = document.getElementById('exphsLogoImg');
-exphsImg.src = _assets_exphs_png__WEBPACK_IMPORTED_MODULE_2__;
-var createNewPatient = document.getElementById("createNewPatientBtn");
-var patient;
-createNewPatient.addEventListener('click', function () {
-  var firstNameInput = document.getElementById("firstName");
-  var lastNameInput = document.getElementById("lastName");
-  var dateOfBirthInput = document.getElementById("dateOfBirth");
-  patient = (0,_emr_utilities_js__WEBPACK_IMPORTED_MODULE_0__.createPatient)(firstNameInput.value, lastNameInput.value, dateOfBirthInput.value);
-  $("#patientNameLabel").html("".concat(patient.firstName, " ").concat(patient.lastName));
-  $("#patientDateOfBirthLabel").html(patient.dateOfBirth);
-  $("#patientMedicalRecordNumberLabel").html(patient.medicalRecordNumber);
-  console.log(patient);
-});
 })();
 
 /******/ })()
 ;
-//# sourceMappingURL=emrutil.3a37782a9ca56ad1bde0.js.map
+//# sourceMappingURL=emrutil.c0e49e328cd1d926896e.js.map
