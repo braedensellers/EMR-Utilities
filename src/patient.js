@@ -1,10 +1,10 @@
 export default class Patient {
-    constructor(firstName, lastName, dateOfBirth) {
+    constructor(firstName, lastName, dateOfBirth, mrnFirstNameCharCount = 1) {
         this.firstName = firstName.toString().trim();
         this.lastName = lastName.toString().trim();
         this.dateOfBirth = dateOfBirth;
 
-        this.medicalRecordNumber = this.generateMedicalRecordNumber(1, 4);
+        this.medicalRecordNumber = this.generateMedicalRecordNumber(mrnFirstNameCharCount, 4);
     }
 
     say = () => console.log(`Patient: ${this.firstName} ${this.lastName} - ${this.dateOfBirth.toString()}`);
