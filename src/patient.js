@@ -47,8 +47,8 @@ class Patient {
      */
     generateId(firstNameChars = 4, lastNameChars = 4) {
         try {
-            let idFirstName = (this.firstName.substring(0, 4)).fillWithCharacter("X", firstNameChars);
-            let idLastName = (this.lastName.substring(0, 4)).fillWithCharacter("X", lastNameChars);
+            let idFirstName = (this.firstName.substring(0, firstNameChars)).fillWithCharacter("X", firstNameChars);
+            let idLastName = (this.lastName.substring(0, lastNameChars)).fillWithCharacter("X", lastNameChars);
             let idDateOfBirth = formatDateStringForId(new Date(this.dateOfBirth));
 
             return (idLastName + idFirstName + idDateOfBirth).toUpperCase();
