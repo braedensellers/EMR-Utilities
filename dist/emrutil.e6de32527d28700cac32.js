@@ -73,8 +73,8 @@ var Patient = /*#__PURE__*/function () {
       var firstNameChars = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 4;
       var lastNameChars = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 4;
       try {
-        var idFirstName = this.firstName.substring(0, 4).fillWithCharacter("X", firstNameChars);
-        var idLastName = this.lastName.substring(0, 4).fillWithCharacter("X", lastNameChars);
+        var idFirstName = this.firstName.substring(0, firstNameChars).fillWithCharacter("X", firstNameChars);
+        var idLastName = this.lastName.substring(0, lastNameChars).fillWithCharacter("X", lastNameChars);
         var idDateOfBirth = formatDateStringForId(new Date(this.dateOfBirth));
         return (idLastName + idFirstName + idDateOfBirth).toUpperCase();
       } catch (err) {
@@ -205,4 +205,4 @@ function createPatient(_firstName, _lastName, _dateOfBirth) {
 
 /******/ })()
 ;
-//# sourceMappingURL=emrutil.de5fc213e1b8d147cd12.js.map
+//# sourceMappingURL=emrutil.e6de32527d28700cac32.js.map
