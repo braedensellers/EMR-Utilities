@@ -46,16 +46,19 @@ class Patient {
      * @returns {string} The patient's generated ID.
      */
     generateId(firstNameChars = 4, lastNameChars = 4) {
-        try {
-            let idFirstName = (this.firstName.substring(0, firstNameChars)).fillWithCharacter("X", firstNameChars);
-            let idLastName = (this.lastName.substring(0, lastNameChars)).fillWithCharacter("X", lastNameChars);
-            let idDateOfBirth = formatDateStringForId(new Date(this.dateOfBirth));
+        const sanitizedFirstName = this.firstName.replace(/[^a-zA-Z]/g, '').toUpperCase();
+        const sanitizedLastName = this.lastName.replace(/[^a-zA-Z]/g, '').toUpperCase();
 
-            return (idLastName + idFirstName + idDateOfBirth).toUpperCase();
-        }
-        catch(err) {
-            console.error(err);
-        }
+        const truncatedFirstName = sanitizedFirstName.slice(0, firstNameChars).padEnd(firstNameChars, 'X');
+        const truncatedLastName = sanitizedLastName.slice(0, lastNameChars).padEnd(lastNameChars, 'X');
+
+        const formattedDateOfBirth = this.dateOfBirth
+            .toLocaleDateString('en-US', { year: '2-digit', month: '2-digit', day: '2-digit' })
+            .replace(/\//g, '');
+
+        const newId = `${truncatedLastName}${truncatedFirstName}${formattedDateOfBirth}`;
+
+        return newId;
     }
 }
 

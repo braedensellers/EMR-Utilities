@@ -72,14 +72,17 @@ var Patient = /*#__PURE__*/function () {
     function generateId() {
       var firstNameChars = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 4;
       var lastNameChars = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 4;
-      try {
-        var idFirstName = this.firstName.substring(0, firstNameChars).fillWithCharacter("X", firstNameChars);
-        var idLastName = this.lastName.substring(0, lastNameChars).fillWithCharacter("X", lastNameChars);
-        var idDateOfBirth = formatDateStringForId(new Date(this.dateOfBirth));
-        return (idLastName + idFirstName + idDateOfBirth).toUpperCase();
-      } catch (err) {
-        console.error(err);
-      }
+      var sanitizedFirstName = this.firstName.replace(/[^a-zA-Z]/g, '').toUpperCase();
+      var sanitizedLastName = this.lastName.replace(/[^a-zA-Z]/g, '').toUpperCase();
+      var truncatedFirstName = sanitizedFirstName.slice(0, firstNameChars).padEnd(firstNameChars, 'X');
+      var truncatedLastName = sanitizedLastName.slice(0, lastNameChars).padEnd(lastNameChars, 'X');
+      var formattedDateOfBirth = this.dateOfBirth.toLocaleDateString('en-US', {
+        year: '2-digit',
+        month: '2-digit',
+        day: '2-digit'
+      }).replace(/\//g, '');
+      var newId = "".concat(truncatedLastName).concat(truncatedFirstName).concat(formattedDateOfBirth);
+      return newId;
     }
   }]);
   return Patient;
@@ -205,4 +208,4 @@ function createPatient(_firstName, _lastName, _dateOfBirth) {
 
 /******/ })()
 ;
-//# sourceMappingURL=emrutil.e6de32527d28700cac32.js.map
+//# sourceMappingURL=emrutil.d6f0702d4bb1a691e23e.js.map
