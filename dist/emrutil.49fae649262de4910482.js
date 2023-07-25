@@ -57,7 +57,7 @@ var Patient = /*#__PURE__*/function () {
     });
     this.firstName = firstName.toString().trim();
     this.lastName = lastName.toString().trim();
-    this.dateOfBirth = dateOfBirth;
+    this.dateOfBirth = new Date(dateOfBirth);
     this.id = this.generateId(idFirstNameCharCount, 4);
   }
   _createClass(Patient, [{
@@ -208,4 +208,4 @@ function createPatient(_firstName, _lastName, _dateOfBirth) {
 
 /******/ })()
 ;
-//# sourceMappingURL=emrutil.d6f0702d4bb1a691e23e.js.map
+//# sourceMappingURL=emrutil.49fae649262de4910482.js.map
