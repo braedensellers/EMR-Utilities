@@ -12,7 +12,7 @@ class Patient {
     constructor(firstName, lastName, dateOfBirth, idFirstNameCharCount = 1) {
         this.firstName = firstName.toString().trim();
         this.lastName = lastName.toString().trim();
-        this.dateOfBirth = dateOfBirth;
+        this.dateOfBirth = new Date(dateOfBirth);
 
         this.id = this.generateId(idFirstNameCharCount, 4);
     }
