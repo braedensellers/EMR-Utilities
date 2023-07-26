@@ -7,14 +7,14 @@ class Patient {
      * @param {string} firstName - The patient's first name.
      * @param {string} lastName - The patient's last name.
      * @param {string} dateOfBirth - The patient's date of birth.
-     * @param {number} idFirstNameCharCount - The number of characters of the first name to substring for the patient's ID.
+     * @param {number} idFirstNameCount - The number of characters of the first name to use for the patient's ID.
+     * @param {number} idLastNameCount - The number of characters of the last name to use for the patient's ID.
      */
-    constructor(firstName, lastName, dateOfBirth, idFirstNameCharCount = 1) {
+    constructor(firstName, lastName, dateOfBirth, idFirstNameCount = 1, idLastNameCount = 4) {
         this.firstName = firstName.toString().trim();
         this.lastName = lastName.toString().trim();
         this.dateOfBirth = new Date(dateOfBirth);
-
-        this.id = this.generateId(idFirstNameCharCount, 4);
+        this.id = this.generateId(idFirstNameCount, idLastNameCount);
     }
 
     /**
@@ -52,9 +52,7 @@ class Patient {
         const truncatedFirstName = sanitizedFirstName.slice(0, firstNameChars).padEnd(firstNameChars, 'X');
         const truncatedLastName = sanitizedLastName.slice(0, lastNameChars).padEnd(lastNameChars, 'X');
 
-        const formattedDateOfBirth = this.dateOfBirth
-            .toLocaleDateString('en-US', { year: '2-digit', month: '2-digit', day: '2-digit' })
-            .replace(/\//g, '');
+        const formattedDateOfBirth = formatDateStringForId(this.dateOfBirth);
 
         const newId = `${truncatedLastName}${truncatedFirstName}${formattedDateOfBirth}`;
 
@@ -68,13 +66,16 @@ class Patient {
  * @returns {string} The formatted date for the patient's ID.
  */
 function formatDateStringForId(date) {
-    date = new Date(date);
+    const dateParts = dateString.split('/');
 
-    const month = (date.getMonth() + 1);
-    const day = date.getDate();
-    const year = date.getFullYear().toString().substring(2);
+    if (dateParts.length !== 3)
+        throw new Error('Invalid date format. The input should be in the format mm/dd/yyyy.');
 
-    return `${month.toString().padStart(2, "0")}${day.toString().padStart(2, "0")}${year}`;
+    const month = dateParts[0].padStart(2, '0');
+    const day = dateParts[1].padStart(2, '0');
+    const year = dateParts[2].slice(-2);
+
+    return month + day + year;
 }
 
 module.exports = {

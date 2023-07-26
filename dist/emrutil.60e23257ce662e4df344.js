@@ -23,11 +23,13 @@ var Patient = /*#__PURE__*/function () {
    * @param {string} firstName - The patient's first name.
    * @param {string} lastName - The patient's last name.
    * @param {string} dateOfBirth - The patient's date of birth.
-   * @param {number} idFirstNameCharCount - The number of characters of the first name to substring for the patient's ID.
+   * @param {number} idFirstNameCount - The number of characters of the first name to use for the patient's ID.
+   * @param {number} idLastNameCount - The number of characters of the last name to use for the patient's ID.
    */
   function Patient(firstName, lastName, dateOfBirth) {
     var _this = this;
-    var idFirstNameCharCount = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : 1;
+    var idFirstNameCount = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : 1;
+    var idLastNameCount = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : 4;
     _classCallCheck(this, Patient);
     /**
      * Prints the patient's full name and date of birth to the console. For debugging.
@@ -58,7 +60,7 @@ var Patient = /*#__PURE__*/function () {
     this.firstName = firstName.toString().trim();
     this.lastName = lastName.toString().trim();
     this.dateOfBirth = new Date(dateOfBirth);
-    this.id = this.generateId(idFirstNameCharCount, 4);
+    this.id = this.generateId(idFirstNameCount, idLastNameCount);
   }
   _createClass(Patient, [{
     key: "generateId",
@@ -76,11 +78,7 @@ var Patient = /*#__PURE__*/function () {
       var sanitizedLastName = this.lastName.replace(/[^a-zA-Z]/g, '').toUpperCase();
       var truncatedFirstName = sanitizedFirstName.slice(0, firstNameChars).padEnd(firstNameChars, 'X');
       var truncatedLastName = sanitizedLastName.slice(0, lastNameChars).padEnd(lastNameChars, 'X');
-      var formattedDateOfBirth = this.dateOfBirth.toLocaleDateString('en-US', {
-        year: '2-digit',
-        month: '2-digit',
-        day: '2-digit'
-      }).replace(/\//g, '');
+      var formattedDateOfBirth = formatDateStringForId(this.dateOfBirth);
       var newId = "".concat(truncatedLastName).concat(truncatedFirstName).concat(formattedDateOfBirth);
       return newId;
     }
@@ -93,11 +91,12 @@ var Patient = /*#__PURE__*/function () {
  * @returns {string} The formatted date for the patient's ID.
  */
 function formatDateStringForId(date) {
-  date = new Date(date);
-  var month = date.getMonth() + 1;
-  var day = date.getDate();
-  var year = date.getFullYear().toString().substring(2);
-  return "".concat(month.toString().padStart(2, "0")).concat(day.toString().padStart(2, "0")).concat(year);
+  var dateParts = dateString.split('/');
+  if (dateParts.length !== 3) throw new Error('Invalid date format. The input should be in the format mm/dd/yyyy.');
+  var month = dateParts[0].padStart(2, '0');
+  var day = dateParts[1].padStart(2, '0');
+  var year = dateParts[2].slice(-2);
+  return month + day + year;
 }
 module.exports = {
   Patient: Patient
@@ -208,4 +207,4 @@ function createPatient(_firstName, _lastName, _dateOfBirth) {
 
 /******/ })()
 ;
-//# sourceMappingURL=emrutil.49fae649262de4910482.js.map
+//# sourceMappingURL=emrutil.60e23257ce662e4df344.js.map
