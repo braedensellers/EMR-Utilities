@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EMR Utilities</title>
+<script defer src="emrutil.3c78c553fd12583c2ebe.js"></script></head>
+<body>
+    <img id="exphsLogoImg" alt="EXPHS"/>
+    <h1 id="header">EMR Utilities Library</h1>
+
+    <div class="container">
+        <form>
+            <h3>Create New Patient</h3>
+
+            <div class="field-container">
+                <label for="firstName">First Name</label>
+                <input type="text" id="firstName">
+
+                <label for="lastName">Last Name</label>
+                <input type="text" id="lastName">
+            </div>
+
+            <div class="field-container">
+                <label for="dateOfBirth">Date of Birth</label>
+                <input type="text" id="dateOfBirth">
+            </div>
+
+            <button id="createNewPatientBtn" type="button" class="btn">Create Patient</button>
+
+            <div>
+                <span>
+                    <p id="patientNameLabel"></p>
+                </span>
+                <span>
+                    <p id="patientDateOfBirthLabel"></p>
+                </span>
+                <span>
+                    <p id="patientMedicalRecordNumberLabel"></p>
+                </span>
+            </div>
+        </form>
+    </div>
+    <div class="container">
+        <form>
+            <h3>Add New Medication</h3>
+
+            <div class="field-container">
+                <label for="medication">Medication</label>
+                <input type="text" id="firstName">
+
+                <label for="reason">Reason</label>
+                <input type="text" id="lastName">
+            </div>
+
+            <button id="addNewMedicationBtn" type="button" class="btn">Add Medication</button>
+
+            <div>
+                <span>
+                    <p id="medicationLabel"></p>
+                </span>
+                <span>
+                    <p id="medicationReason"></p>
+                </span>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
