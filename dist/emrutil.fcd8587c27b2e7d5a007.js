@@ -6,14 +6,8 @@ var EMRUtilities;
 /*!***************************!*\
   !*** ./src/medication.js ***!
   \***************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
+/***/ ((module) => {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "formatMedicationsForEmr": () => (/* binding */ formatMedicationsForEmr)
-/* harmony export */ });
-/* module decorator */ module = __webpack_require__.hmd(module);
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor); } }
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
@@ -54,9 +48,11 @@ function formatMedicationsForEmr(medications) {
   return formattedStrings.join(',');
 }
 module.exports = {
-  Medication: Medication
+  Medication: Medication,
+  formatMedicationsForEmr: formatMedicationsForEmr
 };
 window.Medication = Medication;
+window.formatMedicationsForEmr = formatMedicationsForEmr;
 
 /***/ }),
 
@@ -178,16 +174,13 @@ window.Patient = Patient;
 /******/ 		}
 /******/ 		// Create a new module (and put it into the cache)
 /******/ 		var module = __webpack_module_cache__[moduleId] = {
-/******/ 			id: moduleId,
-/******/ 			loaded: false,
+/******/ 			// no module.id needed
+/******/ 			// no module.loaded needed
 /******/ 			exports: {}
 /******/ 		};
 /******/ 	
 /******/ 		// Execute the module function
 /******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
-/******/ 	
-/******/ 		// Flag the module as loaded
-/******/ 		module.loaded = true;
 /******/ 	
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;
@@ -215,21 +208,6 @@ window.Patient = Patient;
 /******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
 /******/ 				}
 /******/ 			}
-/******/ 		};
-/******/ 	})();
-/******/ 	
-/******/ 	/* webpack/runtime/harmony module decorator */
-/******/ 	(() => {
-/******/ 		__webpack_require__.hmd = (module) => {
-/******/ 			module = Object.create(module);
-/******/ 			if (!module.children) module.children = [];
-/******/ 			Object.defineProperty(module, 'exports', {
-/******/ 				enumerable: true,
-/******/ 				set: () => {
-/******/ 					throw new Error('ES Modules may not assign module.exports or exports.*, Use ESM export syntax, instead: ' + module.id);
-/******/ 				}
-/******/ 			});
-/******/ 			return module;
 /******/ 		};
 /******/ 	})();
 /******/ 	
@@ -265,6 +243,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _patient_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./patient.js */ "./src/patient.js");
 /* harmony import */ var _patient_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_patient_js__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _medication_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./medication.js */ "./src/medication.js");
+/* harmony import */ var _medication_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_medication_js__WEBPACK_IMPORTED_MODULE_1__);
 
 
 
@@ -277,11 +256,11 @@ function createPatient(_firstName, _lastName, _dateOfBirth) {
   return new (_patient_js__WEBPACK_IMPORTED_MODULE_0___default())(_firstName, _lastName, _dateOfBirth);
 }
 function createMedication(_medication, _reason) {
-  return new _medication_js__WEBPACK_IMPORTED_MODULE_1__["default"](_medication, _reason);
+  return new (_medication_js__WEBPACK_IMPORTED_MODULE_1___default())(_medication, _reason);
 }
 })();
 
 EMRUtilities = __webpack_exports__;
 /******/ })()
 ;
-//# sourceMappingURL=emrutil.53658c38cf4c534c3025.js.map
+//# sourceMappingURL=emrutil.fcd8587c27b2e7d5a007.js.map

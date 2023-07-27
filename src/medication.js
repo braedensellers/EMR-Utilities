@@ -23,7 +23,7 @@ class Medication {
  * @param {Medication[]} medications - An array of medication objects.
  * @returns {string} The formatted string of medication objects.
  */
-export function formatMedicationsForEmr(medications) {
+function formatMedicationsForEmr(medications) {
     const formattedStrings = medications.map((medicationData) => {
         return `${medicationData.medication}:${medicationData.reason}`;
     });
@@ -32,7 +32,9 @@ export function formatMedicationsForEmr(medications) {
 }
 
 module.exports = {
-    Medication
+    Medication,
+    formatMedicationsForEmr
 }
 
 window.Medication = Medication;
+window.formatMedicationsForEmr = formatMedicationsForEmr;
