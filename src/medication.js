@@ -31,10 +31,4 @@ function formatMedicationsForEmr(medications) {
     return formattedStrings.join(',');
 }
 
-module.exports = {
-    Medication,
-    formatMedicationsForEmr
-}
-
-window.Medication = Medication;
-window.formatMedicationsForEmr = formatMedicationsForEmr;
+export { Medication, formatMedicationsForEmr };

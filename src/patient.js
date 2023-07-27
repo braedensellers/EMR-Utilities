@@ -78,8 +78,4 @@ function formatDateStringForId(date) {
     return month + day + year;
 }
 
-module.exports = {
-    Patient
-}
-
-window.Patient = Patient;
+export { Patient };
