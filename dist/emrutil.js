@@ -268,8 +268,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
-// Regular expressions
 var regexName = /^[a-zA-Z]+ [a-zA-Z]+$/;
 var regexMedicalRecordNumber = /^[a-zA-Z]+ [a-zA-Z]+$/;
 function validate(regex, value) {

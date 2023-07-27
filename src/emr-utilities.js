@@ -2,7 +2,6 @@ import Patient from "./patient.js";
 import Medication from "./medication.js";
 import formatMedicationsForEmr from "./medication.js";
 
-// Regular expressions
 const regexName = /^[a-zA-Z]+ [a-zA-Z]+$/;
 const regexMedicalRecordNumber = /^[a-zA-Z]+ [a-zA-Z]+$/;
 
