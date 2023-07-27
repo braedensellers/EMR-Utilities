@@ -1,4 +1,5 @@
 import Patient from "./patient.js";
+import Medication from './medication.js';
 import './styles/main.scss';
 import exphsLogo from './assets/exphs.png';
 

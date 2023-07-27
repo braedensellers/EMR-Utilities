@@ -1,5 +1,5 @@
-import Patient from "./patient.js";
-import Medication from "./medication.js";
+import Patient from './patient.js';
+import Medication from './medication.js';
 import exphsLogo from './assets/exphs.png';
 
 const regexName = /^[a-zA-Z]+ [a-zA-Z]+$/;

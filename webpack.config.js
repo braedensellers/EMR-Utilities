@@ -9,6 +9,8 @@ module.exports = {
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: '[name].[contenthash].js',
+        library: 'emrUtilities',
+        libraryTarget: 'commonjs2',
         clean: true,
         assetModuleFilename: '[name][ext]'
     },

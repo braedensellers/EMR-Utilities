@@ -288,6 +288,7 @@ function createMedication(_medication, _reason) {
 }
 })();
 
+module.exports.emrUtilities = __webpack_exports__;
 /******/ })()
 ;
-//# sourceMappingURL=bundle.aa12a5f33293fafbcd4d.js.map
+//# sourceMappingURL=bundle.f9febcd7214a5aed498a.js.map
