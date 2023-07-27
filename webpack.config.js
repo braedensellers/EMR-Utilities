@@ -8,7 +8,8 @@ module.exports = {
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: '[name].[contenthash].js',
+        filename: '[name].js',
+        library: 'EMRUtilities',
         clean: true,
         assetModuleFilename: '[name][ext]',
     },
