@@ -268,6 +268,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 // Regular expressions
 var regexName = /^[a-zA-Z]+ [a-zA-Z]+$/;
 var regexMedicalRecordNumber = /^[a-zA-Z]+ [a-zA-Z]+$/;
@@ -275,10 +276,10 @@ function validate(regex, value) {
   return regex.test(value);
 }
 function createPatient(_firstName, _lastName, _dateOfBirth) {
-  return new _patient_js__WEBPACK_IMPORTED_MODULE_0__.Patient(_firstName, _lastName, _dateOfBirth);
+  return new (_patient_js__WEBPACK_IMPORTED_MODULE_0___default())(_firstName, _lastName, _dateOfBirth);
 }
 function createMedication(_medication, _reason) {
-  return new _medication_js__WEBPACK_IMPORTED_MODULE_1__.Medication(_medication, _reason);
+  return new _medication_js__WEBPACK_IMPORTED_MODULE_1__["default"](_medication, _reason);
 }
 })();
 

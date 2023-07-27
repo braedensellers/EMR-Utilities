@@ -1,5 +1,6 @@
-import { Patient } from "./patient.js";
-import { Medication, formatMedicationsForEmr } from "./medication.js";
+import Patient from "./patient.js";
+import Medication from "./medication.js";
+import formatMedicationsForEmr from "./medication.js";
 
 // Regular expressions
 const regexName = /^[a-zA-Z]+ [a-zA-Z]+$/;
