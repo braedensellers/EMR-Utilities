@@ -1,7 +1,7 @@
 /**
  * Class representing a medication.
  */
-class Medication {
+export default class Medication {
     /**
      * Create a medication.
      * @param {string} name - The name of the medication.
@@ -23,12 +23,10 @@ class Medication {
  * @param {Medication[]} medications - An array of medication objects.
  * @returns {string} The formatted string of medication objects.
  */
-function formatMedicationsForEmr(medications) {
+export function formatMedicationsForEmr(medications) {
     const formattedStrings = medications.map((medicationData) => {
         return `${medicationData.medication}:${medicationData.reason}`;
     });
 
     return formattedStrings.join(',');
 }
-
-export { Medication, formatMedicationsForEmr };

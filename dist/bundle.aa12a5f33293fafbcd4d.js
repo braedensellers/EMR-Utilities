@@ -1,4 +1,3 @@
-var EMRUtilities;
 /******/ (() => { // webpackBootstrap
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
@@ -11,7 +10,7 @@ var EMRUtilities;
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "Medication": () => (/* binding */ Medication),
+/* harmony export */   "default": () => (/* binding */ Medication),
 /* harmony export */   "formatMedicationsForEmr": () => (/* binding */ formatMedicationsForEmr)
 /* harmony export */ });
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
@@ -47,13 +46,13 @@ function Medication(name, reason) {
  * @param {Medication[]} medications - An array of medication objects.
  * @returns {string} The formatted string of medication objects.
  */
+
 function formatMedicationsForEmr(medications) {
   var formattedStrings = medications.map(function (medicationData) {
     return "".concat(medicationData.medication, ":").concat(medicationData.reason);
   });
   return formattedStrings.join(',');
 }
-
 
 /***/ }),
 
@@ -65,7 +64,7 @@ function formatMedicationsForEmr(medications) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "Patient": () => (/* binding */ Patient)
+/* harmony export */   "default": () => (/* binding */ Patient)
 /* harmony export */ });
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -150,15 +149,24 @@ var Patient = /*#__PURE__*/function () {
  * @param {date} date - The date to format.
  * @returns {string} The formatted date for the patient's ID.
  */
+
 function formatDateStringForId(date) {
-  var dateParts = dateString.split('/');
-  if (dateParts.length !== 3) throw new Error('Invalid date format. The input should be in the format mm/dd/yyyy.');
-  var month = dateParts[0].padStart(2, '0');
-  var day = dateParts[1].padStart(2, '0');
-  var year = dateParts[2].slice(-2);
-  return month + day + year;
+  if (!(date instanceof Date) || isNaN(date)) throw new Error("Invalid date object provided.");
+  var month = String(date.getMonth() + 1).padStart(2, "0");
+  var day = String(date.getDate()).padStart(2, "0");
+  var year = String(date.getFullYear()).slice(-2);
+  return "".concat(month).concat(day).concat(year);
 }
 
+/***/ }),
+
+/***/ "./src/assets/exphs.png":
+/*!******************************!*\
+  !*** ./src/assets/exphs.png ***!
+  \******************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = __webpack_require__.p + "exphs.png";
 
 /***/ })
 
@@ -201,6 +209,18 @@ function formatDateStringForId(date) {
 /******/ 		};
 /******/ 	})();
 /******/ 	
+/******/ 	/* webpack/runtime/global */
+/******/ 	(() => {
+/******/ 		__webpack_require__.g = (function() {
+/******/ 			if (typeof globalThis === 'object') return globalThis;
+/******/ 			try {
+/******/ 				return this || new Function('return this')();
+/******/ 			} catch (e) {
+/******/ 				if (typeof window === 'object') return window;
+/******/ 			}
+/******/ 		})();
+/******/ 	})();
+/******/ 	
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
 /******/ 	(() => {
 /******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
@@ -217,6 +237,26 @@ function formatDateStringForId(date) {
 /******/ 		};
 /******/ 	})();
 /******/ 	
+/******/ 	/* webpack/runtime/publicPath */
+/******/ 	(() => {
+/******/ 		var scriptUrl;
+/******/ 		if (__webpack_require__.g.importScripts) scriptUrl = __webpack_require__.g.location + "";
+/******/ 		var document = __webpack_require__.g.document;
+/******/ 		if (!scriptUrl && document) {
+/******/ 			if (document.currentScript)
+/******/ 				scriptUrl = document.currentScript.src;
+/******/ 			if (!scriptUrl) {
+/******/ 				var scripts = document.getElementsByTagName("script");
+/******/ 				if(scripts.length) scriptUrl = scripts[scripts.length - 1].src
+/******/ 			}
+/******/ 		}
+/******/ 		// When supporting browsers where an automatic publicPath is not supported you must specify an output.publicPath manually via configuration
+/******/ 		// or pass an empty string ("") and set the __webpack_public_path__ variable from your code to use your own logic.
+/******/ 		if (!scriptUrl) throw new Error("Automatic publicPath is not supported in this browser");
+/******/ 		scriptUrl = scriptUrl.replace(/#.*$/, "").replace(/\?.*$/, "").replace(/\/[^\/]+$/, "/");
+/******/ 		__webpack_require__.p = scriptUrl;
+/******/ 	})();
+/******/ 	
 /************************************************************************/
 var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
@@ -231,6 +271,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _patient_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./patient.js */ "./src/patient.js");
 /* harmony import */ var _medication_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./medication.js */ "./src/medication.js");
+/* harmony import */ var _assets_exphs_png__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./assets/exphs.png */ "./src/assets/exphs.png");
 
 
 
@@ -247,7 +288,6 @@ function createMedication(_medication, _reason) {
 }
 })();
 
-EMRUtilities = __webpack_exports__;
 /******/ })()
 ;
-//# sourceMappingURL=emrutil.632e81dba372f44f4fbe.js.map
+//# sourceMappingURL=bundle.aa12a5f33293fafbcd4d.js.map

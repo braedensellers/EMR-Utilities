@@ -1,7 +1,7 @@
 /**
  * Class representing a patient.
  */
-class Patient {
+export default class Patient {
     /**
      * Create a patient.
      * @param {string} firstName - The patient's first name.
@@ -66,16 +66,12 @@ class Patient {
  * @returns {string} The formatted date for the patient's ID.
  */
 function formatDateStringForId(date) {
-    const dateParts = dateString.split('/');
+    if (!(date instanceof Date) || isNaN(date))
+        throw new Error("Invalid date object provided.");
 
-    if (dateParts.length !== 3)
-        throw new Error('Invalid date format. The input should be in the format mm/dd/yyyy.');
+    const month = String(date.getMonth() + 1).padStart(2, "0");
+    const day = String(date.getDate()).padStart(2, "0");
+    const year = String(date.getFullYear()).slice(-2);
 
-    const month = dateParts[0].padStart(2, '0');
-    const day = dateParts[1].padStart(2, '0');
-    const year = dateParts[2].slice(-2);
-
-    return month + day + year;
+    return `${month}${day}${year}`;
 }
-
-export { Patient };
