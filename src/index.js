@@ -1,5 +1,4 @@
-import Patient from "./patient.js";
-import Medication from './medication.js';
+import { createPatient, createMedication } from './emr-utilities';
 import './styles/main.scss';
 import exphsLogo from './assets/exphs.png';
 
@@ -13,6 +12,14 @@ document.getElementById('createNewPatientBtn').addEventListener('click', (e) => 
     let lastname = $("#lastName").val();
     let dateofbirth = $("#dateOfBirth").val();
 
-    let patient = new Patient(firstname, lastname, dateofbirth);
+    let patient = createPatient(firstname, lastname, dateofbirth);
     console.log(patient);
+});
+
+document.getElementById('addNewMedicationBtn').addEventListener('click', (e) => {
+    let name = $("#medication").val();
+    let reason = $("#reason").val();
+
+    let medication = createMedication(name, reason);
+    console.log(medication);
 });

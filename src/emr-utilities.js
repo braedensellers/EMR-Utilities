@@ -1,6 +1,6 @@
-import Patient from './patient.js';
-import Medication from './medication.js';
-import exphsLogo from './assets/exphs.png';
+import Patient from './data/patient';
+import Medication from './data/medication';
+import { formatMedicationsForEmr } from './data/medication';
 
 const regexName = /^[a-zA-Z]+ [a-zA-Z]+$/;
 const regexMedicalRecordNumber = /^[a-zA-Z]+ [a-zA-Z]+$/;
@@ -9,10 +9,10 @@ function validate(regex, value) {
   return regex.test(value);
 }
 
-export function createPatient(_firstName, _lastName, _dateOfBirth) {
-  return new Patient(_firstName, _lastName, _dateOfBirth);
-}
+export const createPatient = (firstName, lastName, dateOfBirth) => {
+  return new Patient(firstName, lastName, dateOfBirth);
+};
 
-export function createMedication(_medication, _reason) {
-  return new Medication(_medication, _reason);
-}
+export const createMedication = (medication, reason) => {
+  return new Medication(medication, reason);
+};

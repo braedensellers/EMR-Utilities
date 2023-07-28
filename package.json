@@ -3,6 +3,12 @@
   "version": "0.1.0",
   "description": "JavaScript library for EMR-related operations.",
   "main": "index.js",
+  "scripts": {
+    "build": "webpack --config webpack.prod.js",
+    "dev": "webpack --config webpack.dev.js",
+    "serve": "webpack serve",
+    "doc": "jsdoc -c jsdoc.json"
+  },
   "dependencies": {
     "acorn": "^8.8.2",
     "acorn-import-assertions": "^1.8.0",
@@ -41,7 +47,6 @@
     "isexe": "^2.0.0",
     "isobject": "^3.0.1",
     "jest-worker": "^27.5.1",
-    "jquery": "^3.6.4",
     "json-parse-even-better-errors": "^2.3.1",
     "json-schema-traverse": "^0.4.1",
     "kind-of": "^6.0.3",
@@ -83,7 +88,6 @@
     "update-browserslist-db": "^1.0.10",
     "uri-js": "^4.4.1",
     "watchpack": "^2.4.0",
-    "webpack-merge": "^5.8.0",
     "webpack-sources": "^3.2.3",
     "which": "^2.0.2",
     "wildcard": "^2.0.0"
@@ -92,20 +96,22 @@
     "@babel/core": "^7.21.4",
     "@babel/preset-env": "^7.21.4",
     "babel-loader": "^9.1.2",
-    "css-loader": "^6.7.3",
+    "bootstrap": "^5.3.1",
+    "clean-webpack-plugin": "^4.0.0",
+    "css-loader": "^6.8.1",
+    "file-loader": "^6.2.0",
+    "html-loader": "^4.2.0",
     "html-webpack-plugin": "^5.5.0",
+    "jquery": "^3.7.0",
     "jsdoc": "^4.0.2",
+    "popper.js": "^1.16.1",
     "sass": "^1.62.0",
     "sass-loader": "^13.2.2",
-    "style-loader": "^3.3.2",
+    "style-loader": "^3.3.3",
     "webpack": "^5.78.0",
     "webpack-cli": "^5.0.1",
-    "webpack-dev-server": "^4.13.2"
-  },
-  "scripts": {
-    "build": "webpack",
-    "dev": "webpack serve",
-    "doc": "jsdoc -c jsdoc.json"
+    "webpack-dev-server": "^4.13.2",
+    "webpack-merge": "^5.9.0"
   },
   "repository": {
     "type": "git",

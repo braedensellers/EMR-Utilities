@@ -23,10 +23,10 @@ export default class Medication {
  * @param {Medication[]} medications - An array of medication objects.
  * @returns {string} The formatted string of medication objects.
  */
-export function formatMedicationsForEmr(medications) {
+export const formatMedicationsForEmr = (medications) => {
     const formattedStrings = medications.map((medicationData) => {
         return `${medicationData.medication}:${medicationData.reason}`;
     });
 
     return formattedStrings.join(',');
-}
+};
