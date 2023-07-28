@@ -6,7 +6,7 @@
   "scripts": {
     "build": "webpack --config webpack.prod.js",
     "dev": "webpack --config webpack.dev.js",
-    "serve": "webpack serve",
+    "serve": "webpack serve --config webpack.dev.js",
     "doc": "jsdoc -c jsdoc.json"
   },
   "dependencies": {

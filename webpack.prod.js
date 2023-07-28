@@ -5,6 +5,10 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = merge(common, {
     mode: 'production',
+    entry: {
+        main: path.resolve(__dirname, 'src/emr-utilities.js'),
+        vendor: path.resolve(__dirname, 'src/vendor.js'),
+    },
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: '[name].[contenthash].bundle.js',
