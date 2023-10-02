@@ -36,6 +36,6 @@ export default class Promotions {
      */
     isValidMethod(method) {
         const validMethods = ["none", "email", "text", "mail"];
-        return validMethods.includes(method.toLower());
+        return validMethods.includes(method.toLowerCase());
     }
 }
