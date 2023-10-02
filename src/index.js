@@ -1,4 +1,4 @@
-import { createPatient, createMedication } from './emr-utilities';
+import { createPatient, createMedication, createPatientInfo } from './emr-utilities';
 import './styles/main.scss';
 import exphsLogo from './assets/exphs.png';
 

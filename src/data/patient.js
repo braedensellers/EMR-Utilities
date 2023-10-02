@@ -66,6 +66,7 @@ export default class Patient {
  * @returns {string} The formatted date for the patient's ID.
  */
 function formatDateStringForId(date) {
+    date = new Date(date);
     if (!(date instanceof Date) || isNaN(date))
         throw new Error("Invalid date object provided.");
 
