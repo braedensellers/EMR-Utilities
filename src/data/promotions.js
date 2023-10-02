@@ -5,7 +5,8 @@ export default class Promotions {
     /**
      * Create a list of preferred promotions.
      */
-    constructor(methods = []) {
+    constructor(methods = ["none"]) {
+        this.methods = [];
         methods.forEach(method => {
             this.addMethod(method);
         });
