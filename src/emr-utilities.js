@@ -18,8 +18,8 @@ export const createPatient = (firstName, lastName, dateOfBirth) => {
   return new Patient(firstName, lastName, dateOfBirth);
 };
 
-export const createPatientInfo = () => {
-  return new PatientInfo(firstName, lastName, dateOfBirth);
+export const createPatientInfo = (contact, gender, referredBy) => {
+  return new PatientInfo(contact, gender, referredBy);
 };
 
 export const createPatientContact = (address, phone, email, promotions) => {

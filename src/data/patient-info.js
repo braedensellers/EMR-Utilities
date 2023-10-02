@@ -6,13 +6,13 @@ import { PatientContact } from './patient-contact';
 export default class PatientInfo {
     /**
      * Create a patient's info.
-     * @param {string} gender - The patient's gender.
      * @param {PatientContact} contact - The patient's contact information.
+     * @param {string} gender - The patient's gender.
      * @param {string} referredBy - The person whom the patient was referred by.
      */
-    constructor(gender, contact, referredBy) {
-        this.gender = gender;
+    constructor(contact, gender, referredBy) {
         this.contact = contact;
+        this.gender = gender;
         this.referredBy = referredBy;
     }
 }

@@ -18,7 +18,7 @@ export default class Promotions {
      */
     addMethod(method) {
         if(this.isValidMethod(method))
-            this.methods.push(method);
+            this.methods.push(method.toLowerCase());
         else
             console.error("Invalid promotion method.");
     }
